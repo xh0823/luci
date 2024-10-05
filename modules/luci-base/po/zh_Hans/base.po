@@ -14,6 +14,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.8-dev\n"
 
+#: modules/luci-mod-network/htdocs/luci-static/resources/view/network/dhcp.js:111556
+msgid "Online Users"
+msgstr "在线用户数"
+
 #: modules/luci-mod-network/htdocs/luci-static/resources/view/network/dhcp.js:1153
 msgid "!known (not known)"
 msgstr "!known（未知）"
