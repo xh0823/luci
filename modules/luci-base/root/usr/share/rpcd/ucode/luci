@@ -546,30 +546,44 @@ const methods = {
 
 	getBuiltinEthernetPorts: {
 		call: function() {
-			let fd = open('/etc/board.json', 'r');
-			let board = fd ? json(fd) : {};
+			const ubus = connect();
+			const sysboard = ubus.call('system', 'board');
 			let ports = [];
 
-			for (let k in [ 'lan', 'wan' ]) {
-				if (!board?.network?.[k])
-					continue;
+			if (
+				(type(sysboard) !== 'object') ||
+				match(sysboard.release.target, /^(armsr|bcm27xx|mvebu|rockchip|sifiveu|sunxi|x86)/)
+			) {
+				const stat = ubus.call('network.device', 'status') || {};
+				map(keys(stat), (ifname) => {
+					if (
+						ifname &&
+						stat[ifname]?.devtype in ['ethernet', 'dsa'] &&
+						length(stat[ifname]['link-advertising'])
+					)
+						push(ports, { role: 'unknown', device: ifname });
+				});
+			} else {
+				const fd = open('/etc/board.json', 'r');
+				const board = fd ? json(fd) : {};
+				for (let k in [ 'lan', 'wan' ]) {
+					if (!board?.network?.[k])
+						continue;
 
-				if (type(board.network[k].ports) == 'array') {
-					for (let ifname in board.network[k].ports) {
-						push(ports, { role: k, device: ifname });
+					if (type(board.network[k].ports) == 'array') {
+						for (let ifname in board.network[k].ports)
+							push(ports, { role: k, device: ifname });
+					} else if (type(board.network[k].device) == 'string') {
+						push(ports, { role: k, device: board.network[k].device });
 					}
-				}
-				else if (type(board.network[k].device) == 'string') {
-					push(ports, { role: k, device: board.network[k].device });
 				}
 			}
 
-			/* Workaround for targets that do not enumerate  all netdevs in board.json */
-			if (uname().machine in [ 'x86_64' ] &&
-			    match(ports[0]?.device, /^eth\d+$/)) {
-				let bus = readlink(`/sys/class/net/${ports[0].device}/device/subsystem`);
+			return { result: ports };
+		}
+	},
 
-				getCPUBench: {
+	getCPUBench: {
 		call: function() {
 			return { cpubench: readfile('/etc/bench.log') || '' };
 		}
