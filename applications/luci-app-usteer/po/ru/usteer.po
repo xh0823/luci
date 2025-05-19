@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-05-02 07:29+0000\n"
-"Last-Translator: Maksim_220 Кабанов <law820314@gmail.com>\n"
+"PO-Revision-Date: 2025-05-14 18:22+0000\n"
+"Last-Translator: SnIPeRSnIPeR <feoktistovk@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/openwrt/"
 "luciapplicationsusteer/ru/>\n"
 "Language: ru\n"
@@ -400,7 +400,7 @@ msgstr "N"
 
 #: applications/luci-app-usteer/htdocs/luci-static/resources/view/usteer/usteer.js:405
 msgid "Network"
-msgstr "Сетевое подключение"
+msgstr "Сеть"
 
 #: applications/luci-app-usteer/htdocs/luci-static/resources/view/usteer/usteer.js:423
 msgid "Network packet info"
@@ -429,7 +429,7 @@ msgstr "Шум"
 #: applications/luci-app-usteer/htdocs/luci-static/resources/view/usteer/usteer.js:478
 msgid "Number of remote update intervals after which a remote-node is deleted"
 msgstr ""
-"Количество интервалов удаленного обновления, после которых удаленный узел "
+"Количество интервалов удалённого обновления, после которых удалённый узел "
 "удаляется"
 
 #: applications/luci-app-usteer/htdocs/luci-static/resources/view/usteer/usteer.js:486
@@ -446,15 +446,15 @@ msgstr "Обновите страницу, чтобы отобразились �
 
 #: applications/luci-app-usteer/htdocs/luci-static/resources/view/usteer/usteer.js:215
 msgid "Remote hosts"
-msgstr "Удаленные хосты"
+msgstr "Удалённые хосты"
 
 #: applications/luci-app-usteer/htdocs/luci-static/resources/view/usteer/usteer.js:478
 msgid "Remote node timeout"
-msgstr "Таймаут удаленного узла"
+msgstr "Таймаут удалённого узла"
 
 #: applications/luci-app-usteer/htdocs/luci-static/resources/view/usteer/usteer.js:473
 msgid "Remote update interval"
-msgstr "Интервал удаленного обновления"
+msgstr "Интервал удалённого обновления"
 
 #: applications/luci-app-usteer/htdocs/luci-static/resources/view/usteer/usteer.js:525
 msgid ""
@@ -609,7 +609,7 @@ msgstr "Чтобы запустить его, попробуйте %s"
 
 #: applications/luci-app-usteer/htdocs/luci-static/resources/view/usteer/usteer.js:414
 msgid "Use IPv6 for remote exchange"
-msgstr "Используйте IPv6 для удаленного обмена"
+msgstr "Используйте IPv6 для удалённого обмена"
 
 #: applications/luci-app-usteer/htdocs/luci-static/resources/view/usteer/usteer.js:370
 #: applications/luci-app-usteer/htdocs/luci-static/resources/view/usteer/usteer.js:378
@@ -640,14 +640,3 @@ msgstr "по умолчанию true"
 #: applications/luci-app-usteer/htdocs/luci-static/resources/view/usteer/usteer.js:625
 msgid "empty means all"
 msgstr "пустой означает, что все"
-
-#~ msgid "Timeout (in 100ms beacon intervals) for client roam requests"
-#~ msgstr "Таймаут (в интервалах 100 мс) для запросов клиента на роуминг"
-
-#~ msgctxt "Combination of IP and interface name in usteer overview"
-#~ msgid "IP & Interface"
-#~ msgstr "IP и интерфейс"
-
-#~ msgctxt "Combination of IP and interface name in usteer overview"
-#~ msgid "IP & Interface name"
-#~ msgstr "IP-адрес и имя интерфейса"
